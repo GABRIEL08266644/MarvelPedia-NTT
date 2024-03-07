@@ -1,9 +1,13 @@
 .container
-  width: 85vw
+  width: 90vw
   margin: 0 auto
+  display: flex
+  flex-direction: column
+  justify-content: center
+  align-items: center 
 
 .filter
-  width: 100%
+  width: 90%
   padding: 22px 2px
   display: flex
   justify-content: space-between
@@ -13,9 +17,14 @@
     
     select 
       height: 28px
-      width: 200px
+      width: 250px
       padding: 6px
       margin: 6px
+      border-radius: 12px
+
+      option
+        border-radius: 12px
+
 
   .input-group
     input
@@ -24,19 +33,18 @@
       margin-left: 6px
       border-radius: 8px
       
-  .btn-primary
+  .btn-filter
     padding: 6px
     margin: 6px
-    border-radius: 8px
-    border: solid black 1px
-    transition: background-color 0.3s
+    border-radius: 50%
+    border: none
+    transition: background-color 0.3s   
 
     img
       width: 14px
 
     &:hover
-      background-color: #a1a1a1
-      color: #fff
+      background-color: #e6e5e5
 
     &.mr-2
       margin-right: 0
@@ -45,10 +53,18 @@
       width: 60px
       font-size: 15px
 
+  .btn-primary
+    padding: 6px
+    margin: 6px
+    border-radius: 8px
+    border: solid black 1px
+    transition: background-color 0.3s
+
+
 .card-container
   display: flex
   flex-wrap: wrap
-  justify-content: flex-start
+  justify-content: space-around
   gap: 20px
   width: 100%
   cursor: pointer
@@ -81,13 +97,8 @@
       transform: scale(1.05)
 
 .back-button
-  width: 100%
-  position: relative
 
   button
-    position: absolute
-    bottom: 0
-    right: 50px
     border-radius: 50%
     transition: background-color 0.3s
 
@@ -96,4 +107,4 @@
       box-shadow: 0px 0px 4px 0px rgba(0,0,0,0.75)
 
   img
-    width: 40px
+    width: 30px
