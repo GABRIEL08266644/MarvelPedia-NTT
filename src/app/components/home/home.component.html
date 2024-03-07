@@ -1,2 +1,6 @@
-<a routerLink="/list">ver personagens</a>
-<p>home works!</p>
+<div class="background">
+    <div class="slider">
+        <img *ngFor="let image of images" [src]="image" [class.active]="image === currentImage">
+    </div>
+    <button class="btn-character" routerLink="/characters-list" >View Characters</button>
+</div>

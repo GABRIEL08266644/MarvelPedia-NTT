@@ -13,14 +13,14 @@ export class CharacterService {
 
   constructor(private http: HttpClient) { }
 
-  // getCharacters(): Observable<any> {
-  //   const url = `${this.baseUrl}/comics?ts=${this.ts}&apikey=${this.apiKey}&hash=${this.hash}`;
-  //   return this.http.get<any>(url);
-  // }
-
   getCharacters(page: number, limit: number): Observable<any> {
     const offset = (page - 1) * limit;
-    const url = `${this.baseUrl}/comics?ts=${this.ts}&apikey=${this.apiKey}&hash=${this.hash}&offset=${offset}&limit=${limit}`;
+    const url = `${this.baseUrl}/characters?ts=${this.ts}&apikey=${this.apiKey}&hash=${this.hash}&offset=${offset}&limit=${limit}`;
+    return this.http.get<any>(url);
+  }
+  
+  getCharacterDetailsById(id: number): Observable<any> {
+    const url = `${this.baseUrl}/characters/${id}?ts=${this.ts}&apikey=${this.apiKey}&hash=${this.hash}`;
     return this.http.get<any>(url);
   }
  }

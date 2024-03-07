@@ -1,0 +1,35 @@
+<div class="container">
+  <div class="filter">
+    <div class="col-md-6">
+      <div class="input">
+        <select class="form-control" [(ngModel)]="selectedCharacterId">
+          <option value="">Choose a character</option>
+          <option *ngFor="let character of comics" [value]="character.id" >{{ character.name }}</option>
+        </select>
+        <button class="btn btn-primary btn-outline-primary" type="button" (click)="applyFilter()"><img src="assets/btns/search.png"></button>
+        <button class="btn btn-primary btn-outline-primary" type="button" (click)="resetFilter()"><img src="assets/btns/reload.png"></button>
+      </div>
+    </div>
+    
+    <div class="col-md-6">
+      <div class="input-group">
+        <button class="btn btn-primary mr-2" (click)="prevPage()" [disabled]="currentPage === 1">Previous</button>
+        <input class="qtd" type="number" class="form-control ml-2" [(ngModel)]="itemsPerPage" (change)="changeItemsPerPage()" placeholder="Itens por página">
+        <button class="btn btn-primary" (click)="nextPage()">Next</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="card-container">
+    <div class="card" *ngFor="let comic of comics" (mouseover)="hoverCard($event)" (mouseout)="unhoverCard($event)" (click)="showDetails(comic)">
+      <img [src]="comic.thumbnail.path + '.' + comic.thumbnail.extension" class="card-img-top" alt="...">
+      <div class="card-body">
+        <h5 class="card-title">{{ comic.name }}</h5>
+      </div>
+    </div>
+  </div>
+
+  <div class="back-button">
+    <button (click)="goBack()"><img src="assets/btns/go-back.png"></button>
+  </div>
+</div>

@@ -1,0 +1,99 @@
+.container
+  width: 85vw
+  margin: 0 auto
+
+.filter
+  width: 100%
+  padding: 22px 2px
+  display: flex
+  justify-content: space-between
+
+  .input
+    display: flex
+    
+    select 
+      height: 28px
+      width: 200px
+      padding: 6px
+      margin: 6px
+
+  .input-group
+    input
+      height: 28px
+      width: 40px
+      margin-left: 6px
+      border-radius: 8px
+      
+  .btn-primary
+    padding: 6px
+    margin: 6px
+    border-radius: 8px
+    border: solid black 1px
+    transition: background-color 0.3s
+
+    img
+      width: 14px
+
+    &:hover
+      background-color: #a1a1a1
+      color: #fff
+
+    &.mr-2
+      margin-right: 0
+
+    &.qtd
+      width: 60px
+      font-size: 15px
+
+.card-container
+  display: flex
+  flex-wrap: wrap
+  justify-content: flex-start
+  gap: 20px
+  width: 100%
+  cursor: pointer
+
+.card
+  width: calc(33.333% - 20px) 
+  margin-bottom: 20px
+  box-sizing: border-box 
+  text-align: center 
+  transition: transform 0.3s ease 
+
+  .card-img-top
+    width: 80%
+    object-fit: cover
+
+  .card-body
+    padding: 15px
+
+    .card-title
+      font-size: 18px
+      font-weight: bold
+
+    .card-text
+      font-size: 14px
+
+    .btn
+      font-size: 16px
+
+    &:hover
+      transform: scale(1.05)
+
+.back-button
+  width: 100%
+  position: relative
+
+  button
+    position: absolute
+    bottom: 0
+    right: 50px
+    border-radius: 50%
+    transition: background-color 0.3s
+
+    &:hover
+      background: linear-gradient(to right, #d7d7d7, #c7c7c7)
+      box-shadow: 0px 0px 4px 0px rgba(0,0,0,0.75)
+
+  img
+    width: 40px

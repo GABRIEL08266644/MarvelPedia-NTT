@@ -5,14 +5,18 @@ import { AppRoutingModule } from './app-routing.module';
 
 import { AppComponent } from './app.component';
 import { HomeComponent } from './components/home/home.component';
-import { ListComponent } from './components/list/list.component';
+import { CharactersListComponent } from './components/characters-list/characters-list.component';
 import { FormsModule } from '@angular/forms';
+import { HeaderComponent } from './components/header/header.component';
+import { CharacterDetailsComponent } from './components/character-details/character-details.component';
 
 @NgModule({
   declarations: [
     AppComponent,
+    HeaderComponent,
     HomeComponent,
-    ListComponent
+    CharactersListComponent,
+    CharacterDetailsComponent
   ],
   imports: [
     BrowserModule,
