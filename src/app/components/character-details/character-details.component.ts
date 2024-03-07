@@ -9,6 +9,7 @@ import { Location } from '@angular/common';
   styleUrls: ['./character-details.component.sass']
 })
 export class CharacterDetailsComponent implements OnInit {
+  isExpandedImage: boolean = false;
   characterId: number = 0;
   character: any[0];
 
@@ -36,6 +37,14 @@ export class CharacterDetailsComponent implements OnInit {
       this.characterTitle = character.name;
       this.characterDescription = character.description;
     });
+  }
+
+  expandImage(): void {
+    this.isExpandedImage = true;
+  }
+
+  closeExpandedImage(): void {
+    this.isExpandedImage = false;
   }
 
   goBack(): void {

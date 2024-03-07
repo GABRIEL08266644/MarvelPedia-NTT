@@ -1,7 +1,8 @@
 .container
   width: 80vw
+  height: 100vh
   margin: 0 auto
-  background-color: #ec000000 !important
+  position: relative
 
 .card
   width: 100%
@@ -16,6 +17,11 @@ img
   width: 500px 
   display: block 
   object-fit: contain 
+  cursor: pointer
+  transition: transform 0.3s ease-in-out
+
+  &:hover
+    transform: scale(1.01)
 
 .title-description
   width: 100%
@@ -25,6 +31,9 @@ img
     border-radius: 50%
     transition: background 0.6s ease, box-shadow 0.6s ease, transform 0.6s ease
     cursor: pointer
+    position: absolute
+    bottom: 12px
+    right: 12px
 
     &:hover
       background: linear-gradient(to right, #d7d7d7, #c7c7c7)
@@ -33,7 +42,31 @@ img
     img
       width: 40px 
 
-button
-  position: absolute 
-  bottom: 0 
-  right: 0 
+.expanded-image
+  position: fixed
+  top: 0
+  left: 0
+  width: 100%
+  height: 100%
+  background-color: rgba(0, 0, 0, 0.8)
+  z-index: 9999
+  opacity: 0
+  transition: opacity 0.3s ease
+
+  img
+    position: absolute
+    top: 50%
+    left: 50%
+    transform: translate(-50%, -50%) scale(0.5)
+    max-width: 90%
+    max-height: 90%
+    transition: transform 0.3s ease
+
+.container.expand .card
+  display: none
+
+.container.expand .expanded-image
+  opacity: 1
+
+  img
+    transform: translate(-50%, -50%) scale(1)
