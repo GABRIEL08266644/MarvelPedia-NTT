@@ -1,26 +1,32 @@
-import { HttpClient, HttpClientModule, HttpHeaders } from '@angular/common/http';
+import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
+import { environment } from 'src/environments/environment';
 
 @Injectable({
   providedIn: 'root'
 })
 export class CharacterService {
-  private baseUrl = 'https://gateway.marvel.com/v1/public';
-  private ts = '1709757787';
-  private apiKey = 'c2416f40d220937a68c3100500893881';
-  private hash = 'd5bc43b250625707841a414e626e62ae';
-
   constructor(private http: HttpClient) { }
 
   getCharacters(page: number, limit: number): Observable<any> {
     const offset = (page - 1) * limit;
-    const url = `${this.baseUrl}/characters?ts=${this.ts}&apikey=${this.apiKey}&hash=${this.hash}&offset=${offset}&limit=${limit}`;
+    const url = 
+      `${environment.MARVEL_API_URL}/characters?ts=${
+        environment.TS
+      }&apikey=${environment.MARVEL_API_KEY}&hash=${
+        environment.MARVEL_HASH
+      }&offset=${offset}&limit=${limit}`;
+
     return this.http.get<any>(url);
   }
   
   getCharacterDetailsById(id: number): Observable<any> {
-    const url = `${this.baseUrl}/characters/${id}?ts=${this.ts}&apikey=${this.apiKey}&hash=${this.hash}`;
+    const url = 
+      `${environment.MARVEL_API_URL}/characters/${id}?ts=${
+        environment.TS
+      }&apikey=${environment.MARVEL_API_KEY}&hash=${environment.MARVEL_HASH}`;
+
     return this.http.get<any>(url);
   }
- }
+}

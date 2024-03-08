@@ -36,11 +36,16 @@ export class CharacterDetailsComponent implements OnInit {
     this.loadingData = true; 
 
     this.characterService.getCharacterDetailsById(this.characterId).subscribe((characterDetais) => {
-      var character = characterDetais.data.results[0];
+      const character = characterDetais.data.results[0];
       this.characterImage = character.thumbnail.path + '.' + character.thumbnail.extension;
       this.characterTitle = character.name;
       this.characterDescription = character.description;
       this.loadingData = false; 
+
+      const comics = character.comics.items.map((item: any) => ({
+        name: item.name,
+        url: item.resourceURI
+      }));
     });
   }
 

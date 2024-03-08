@@ -1,8 +1,9 @@
 .container
   width: 80vw
-  height: 100vh
+  min-height: 100%
   margin: 0 auto
   position: relative
+  padding: 12px
 
 .card
   width: 100%
@@ -13,8 +14,12 @@
     margin: 12px
     width: 50%
 
+    img
+      border-radius: 8px
+      max-height: 90%
+
 img
-  width: 500px 
+  max-width: 100% 
   display: block 
   object-fit: contain 
   cursor: pointer
@@ -41,6 +46,7 @@ img
 
     img
       width: 40px 
+      border-radius: 8px
 
 .expanded-image
   position: fixed
@@ -70,3 +76,4 @@ img
 
   img
     transform: translate(-50%, -50%) scale(1)
+    

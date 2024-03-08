@@ -8,18 +8,19 @@
   align-items: center 
 
 .filter
-  width: 90%
+  width: 100%
   padding: 22px 2px
   display: flex
   justify-content: space-between
+  align-items: center
 
   .container-filter, .container-paginator
-    width: 33%
     display: flex
     align-items: center
       
   .container-filter
     justify-content: center
+    width: 100%
     
   .container-paginator   
     justify-content: flex-end
@@ -46,11 +47,14 @@
       border-radius: 8px
 
   .btn-filter
-    padding: 6px
     margin: 6px
     border-radius: 50%
     border: none
     transition: background-color 0.3s   
+    align-items: center
+    justify-content: center
+    width: 30px
+    height: 30px
 
     img
       width: 14px
@@ -89,7 +93,7 @@
   box-sizing: border-box
   text-align: center
   transition: transform 0.3s ease
-  background-color: #f9f9f9 
+  background-color: #52525b 
   border-radius: 12px
 
   .card-img-container
@@ -118,22 +122,14 @@
       transform: scale(1.05)
 
 .back-button
-  width: 33%
-
-  button
-    border-radius: 50%
-    transition: background-color 0.3s
-
-    &:hover
-      background: linear-gradient(to right, #d7d7d7, #c7c7c7)
-      box-shadow: 0px 0px 4px 0px rgba(0,0,0,0.75)
-
-  img
-    width: 30px
+  width: 187.97px
+  height: 30px
 
 .input-group
   display: flex
+  flex: 1 !important
   align-items: center
+  justify-content: flex-end
 
   .page-numbers
     display: flex

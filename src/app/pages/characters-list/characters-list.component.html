@@ -1,7 +1,7 @@
 <div class="container">
   <div *ngIf="!loadingData" class="filter">
     <div class="back-button">
-      <button (click)="goBack()"><img src="assets/btns/go-back.png"></button>
+      <app-go-back></app-go-back>
     </div>
 
     <div class="container-filter">
@@ -16,17 +16,19 @@
     </div>
     
     <div class="container-paginator">
-      <div class="input-group">
-        <button class="btn btn-primary" (click)="prevPage()" [disabled]="currentPage === 1"><img src="assets/btns/left-arrow.png"></button>
-        <div class="page-numbers">
-          <span class="page-number" *ngIf="currentPage > 1" (click)="changePage(currentPage - 1)">{{ currentPage - 1 }}</span>
-          <span class="page-number active">{{ currentPage }}</span>
-          <span class="page-number" *ngIf="currentPage < totalPages" (click)="changePage(currentPage + 1)">{{ currentPage + 1 }}</span>
+      <div>
+        <div class="input-group">
+          <button class="btn btn-primary" (click)="prevPage()" [disabled]="currentPage === 1"><img src="assets/btns/left-arrow.png"></button>
+          <div class="page-numbers">
+            <span class="page-number" *ngIf="currentPage > 1" (click)="changePage(currentPage - 1)">{{ currentPage - 1 }}</span>
+            <span class="page-number active">{{ currentPage }}</span>
+            <span class="page-number" *ngIf="currentPage < totalPages" (click)="changePage(currentPage + 1)">{{ currentPage + 1 }}</span>
+          </div>
+          <button class="btn btn-primary" (click)="nextPage()" [disabled]="currentPage === totalPages"><img src="assets/btns/right-arrow.png"></button>
+          <select [(ngModel)]="itemsPerPage" (change)="changeItemsPerPage()">
+            <option *ngFor="let option of itemsPerPageOptions" [value]="option">{{ option }}</option>
+          </select>
         </div>
-        <button class="btn btn-primary" (click)="nextPage()" [disabled]="currentPage === totalPages"><img src="assets/btns/right-arrow.png"></button>
-        <select [(ngModel)]="itemsPerPage" (change)="changeItemsPerPage()">
-          <option *ngFor="let option of itemsPerPageOptions" [value]="option">{{ option }}</option>
-        </select>
       </div>
     </div>
   </div>

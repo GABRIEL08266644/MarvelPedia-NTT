@@ -4,13 +4,14 @@ import { HttpClientModule } from '@angular/common/http';
 import { AppRoutingModule } from './app-routing.module';
 
 import { AppComponent } from './app.component';
-import { HomeComponent } from './components/home/home.component';
-import { CharactersListComponent } from './components/characters-list/characters-list.component';
+import { HomeComponent } from './pages/home/home.component';
+import { CharactersListComponent } from './pages/characters-list/characters-list.component';
 import { FormsModule } from '@angular/forms';
 import { HeaderComponent } from './components/header/header.component';
-import { CharacterDetailsComponent } from './components/character-details/character-details.component';
+import { CharacterDetailsComponent } from './pages/character-details/character-details.component';
 import { LoadingComponent } from './components/loading/loading.component';
 import { FooterComponent } from './components/footer/footer.component';
+import { GoBackComponent } from './components/go-back/go-back.component';
 
 @NgModule({
   declarations: [
@@ -20,7 +21,8 @@ import { FooterComponent } from './components/footer/footer.component';
     CharactersListComponent,
     CharacterDetailsComponent,
     LoadingComponent,
-    FooterComponent
+    FooterComponent,
+    GoBackComponent
   ],
   imports: [
     BrowserModule,
