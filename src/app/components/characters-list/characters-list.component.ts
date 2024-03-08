@@ -3,20 +3,23 @@ import { Router } from '@angular/router';
 import { CharacterService } from 'src/app/services/character.service';
 import { Location } from '@angular/common';
 
-
 @Component({
   selector: 'app-characters-list',
   templateUrl: './characters-list.component.html',
   styleUrls: ['./characters-list.component.sass']
 })
 export class CharactersListComponent implements OnInit {
-  selectedCharacterId: number = 0;
-  filterValue: string = '';
-  comics: any[0];
   currentPage: number = 1;
-  itemsPerPage: number = 10;
+  totalPages: number = 1;
+  
+  selectedCharacterId: number = 0;
+  characters: any[] = [];
+  
   totalItems: number = 0;
-  itemsPerPageOptions: number[] = [6, 10, 24, 48];
+  itemsPerPage: number = 12;
+  itemsPerPageOptions: number[] = [6, 12, 24, 48, 96];
+
+  loadingData: boolean = false;
 
   constructor(
     private characterService: CharacterService,
@@ -25,14 +28,18 @@ export class CharactersListComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
-    this.getComics();
+    this.getCharacters();
   }
 
-  getComics(): void {
+  getCharacters(): void {
+    this.loadingData = true; 
+    
     this.characterService.getCharacters(this.currentPage, this.itemsPerPage)
       .subscribe(response => {
-        this.comics = response.data.results;
+        this.characters = response.data.results;
         this.totalItems = response.data.total;
+        this.totalPages = Math.ceil(this.totalItems / this.itemsPerPage);
+        this.loadingData = false;
       });
   }
 
@@ -44,45 +51,53 @@ export class CharactersListComponent implements OnInit {
     (event.currentTarget as HTMLElement).style.transform = 'scale(1)';
   }
 
-  showDetails(comic: any) {
-    console.log(comic.id)
-    this.router.navigate(['/character-details', comic.id]);
+  showDetails(character: any) {
+    this.router.navigate(['/character-details', character.id]);
   }
-
+  
   nextPage(): void {
-    if ((this.currentPage * this.itemsPerPage) < this.totalItems) {
+    if (this.currentPage < this.totalPages) {
       this.currentPage++;
-      this.getComics();
+      this.getCharacters();
     }
   }
 
   prevPage(): void {
     if (this.currentPage > 1) {
       this.currentPage--;
-      this.getComics();
+      this.getCharacters();
     }
   }
 
   changeItemsPerPage(): void {
     this.currentPage = 1;
-    this.getComics();
+    this.getCharacters();
+  }
+
+  changePage(pageNumber: number): void {
+    if (pageNumber > 0 && pageNumber <= this.totalPages) {
+      this.currentPage = pageNumber;
+      this.getCharacters();
+    }
   }
 
   applyFilter(): void {
-    console.log(this.selectedCharacterId)
+    this.loadingData = true;
 
     this.characterService.getCharacterDetailsById(this.selectedCharacterId)
-    .subscribe(response => {
-      this.comics = response.data.results;
-      this.totalItems = response.data.total;
-    });
+      .subscribe(response => {
+        this.characters = response.data.results;
+        this.totalItems = response.data.total;
+        this.totalPages = Math.ceil(this.totalItems / this.itemsPerPage);
+        this.loadingData = false;
+      });
   }
 
   resetFilter(): void {
     this.selectedCharacterId = 0;
-    this.getComics();
+    this.getCharacters();
   }
-  
+
   goBack(): void {
     this.location.back();
   }

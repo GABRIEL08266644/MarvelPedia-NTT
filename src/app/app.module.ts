@@ -9,6 +9,7 @@ import { CharactersListComponent } from './components/characters-list/characters
 import { FormsModule } from '@angular/forms';
 import { HeaderComponent } from './components/header/header.component';
 import { CharacterDetailsComponent } from './components/character-details/character-details.component';
+import { LoadingComponent } from './components/loading/loading.component';
 
 @NgModule({
   declarations: [
@@ -16,7 +17,8 @@ import { CharacterDetailsComponent } from './components/character-details/charac
     HeaderComponent,
     HomeComponent,
     CharactersListComponent,
-    CharacterDetailsComponent
+    CharacterDetailsComponent,
+    LoadingComponent
   ],
   imports: [
     BrowserModule,

@@ -12,6 +12,17 @@
   display: flex
   justify-content: space-between
 
+  .container-filter, .container-paginator
+    width: 33%
+    display: flex
+    align-items: center
+      
+  .container-filter
+    justify-content: center
+    
+  .container-paginator   
+    justify-content: flex-end
+
   .input
     display: flex
     
@@ -27,12 +38,12 @@
 
 
   .input-group
-    input
-      height: 28px
+    select
+      height: 30px
       width: 40px
       margin-left: 6px
       border-radius: 8px
-      
+
   .btn-filter
     padding: 6px
     margin: 6px
@@ -54,11 +65,13 @@
       font-size: 15px
 
   .btn-primary
-    padding: 6px
-    margin: 6px
-    border-radius: 8px
+    padding: 2px
+    border-radius: 2px
     border: solid black 1px
     transition: background-color 0.3s
+    
+    img
+      width: 20px
 
 
 .card-container
@@ -97,6 +110,7 @@
       transform: scale(1.05)
 
 .back-button
+  width: 33%
 
   button
     border-radius: 50%
@@ -108,3 +122,27 @@
 
   img
     width: 30px
+  
+.input-group
+  display: flex
+  align-items: center
+
+  .page-numbers
+    display: flex
+    margin: 0 10px
+
+    .page-number
+      padding: 5px 10px
+      margin: 0 2px
+      border: 1px solid #7d7d7d
+      border-radius: 4px
+      cursor: pointer
+      transition: background-color 0.3s
+
+      &.active
+        background-color: #7d7d7d
+        color: #fff
+        border-color: #7d7d7d
+
+      &:hover
+        background-color: #f8f9fa

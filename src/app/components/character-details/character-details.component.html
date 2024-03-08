@@ -13,3 +13,7 @@
       <img [src]="characterImage" alt="Character Image" class="img-fluid">
   </div>
 </div>
+
+<div *ngIf="loadingData" class="loading">
+    <app-loading></app-loading>
+</div>
