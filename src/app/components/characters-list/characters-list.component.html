@@ -1,5 +1,5 @@
 <div class="container">
-  <div class="filter">
+  <div *ngIf="!loadingData" class="filter">
     <div class="back-button">
       <button (click)="goBack()"><img src="assets/btns/go-back.png"></button>
     </div>
@@ -33,7 +33,9 @@
 
   <div class="card-container">
     <div class="card" *ngFor="let character of characters" (mouseover)="hoverCard($event)" (mouseout)="unhoverCard($event)" (click)="showDetails(character)">
-      <img [src]="character.thumbnail.path + '.' + character.thumbnail.extension" class="card-img-top" alt="Character Image">
+      <div class="card-img-container">
+        <img [src]="character.thumbnail.path + '.' + character.thumbnail.extension" class="card-img-top" alt="Character Image">
+      </div>
       <div class="card-body">
         <h5 class="card-title">{{ character.name }}</h5>
       </div>
