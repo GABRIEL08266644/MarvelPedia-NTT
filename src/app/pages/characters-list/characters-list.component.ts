@@ -43,14 +43,6 @@ export class CharactersListComponent implements OnInit {
       });
   }
 
-  hoverCard(event: MouseEvent) {
-    (event.currentTarget as HTMLElement).style.transform = 'scale(1.05)';
-  }
-
-  unhoverCard(event: MouseEvent) {
-    (event.currentTarget as HTMLElement).style.transform = 'scale(1)';
-  }
-
   showDetails(character: any) {
     this.router.navigate(['/character-details', character.id]);
   }

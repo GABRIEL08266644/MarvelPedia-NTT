@@ -14,11 +14,13 @@
   justify-content: space-between
   align-items: center
 
-  .container-filter, .container-paginator
-    display: flex
-    align-items: center
+  .container-filter,   
+  .container-paginator,
+  .back-button
+    flex: 1
       
   .container-filter
+    display: flex
     justify-content: center
     width: 100%
     
@@ -29,6 +31,7 @@
     display: flex
     
     select 
+      background-color: #797979
       height: 28px
       width: 250px
       padding: 6px
@@ -41,6 +44,7 @@
 
   .input-group
     select
+      background-color: #797979
       height: 30px
       width: 40px
       margin-left: 6px
@@ -55,12 +59,13 @@
     justify-content: center
     width: 30px
     height: 30px
+    background-color: #797979
 
     img
       width: 14px
 
     &:hover
-      background-color: #e6e5e5
+      background-color: #bcbcbc
 
     &.mr-2
       margin-right: 0
@@ -74,9 +79,13 @@
     border-radius: 2px
     border: solid black 1px
     transition: background-color 0.3s
-    
+    background-color: #797979
+  
+    &:hover
+      background-color: #bcbcbc
+
     img
-      width: 20px
+      width: 22px
 
 
 .card-container
@@ -95,6 +104,9 @@
   transition: transform 0.3s ease
   background-color: #52525b 
   border-radius: 12px
+
+  &:hover
+    transform: scale(1.05)
 
   .card-img-container
     height: 300px
@@ -149,4 +161,4 @@
         border-color: #7d7d7d
 
       &:hover
-        background-color: #f8f9fa
+        background-color: #bcbcbc

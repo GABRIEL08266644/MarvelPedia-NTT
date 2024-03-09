@@ -34,7 +34,7 @@
   </div>
 
   <div class="card-container">
-    <div class="card" *ngFor="let character of characters" (mouseover)="hoverCard($event)" (mouseout)="unhoverCard($event)" (click)="showDetails(character)">
+    <div class="card" *ngFor="let character of characters" (click)="showDetails(character)">
       <div class="card-img-container">
         <img [src]="character.thumbnail.path + '.' + character.thumbnail.extension" class="card-img-top" alt="Character Image">
       </div>
