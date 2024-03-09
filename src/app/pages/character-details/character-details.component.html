@@ -17,6 +17,14 @@
   <div class="expanded-image" *ngIf="isExpandedImage" (click)="closeExpandedImage()">
       <img [src]="characterImage" alt="Character Image" class="img-fluid">
   </div>
+
+  <h1>Comics</h1>
+  <div class="card-container">
+    <div *ngFor="let comic of comics" class="card-comic">
+      <img [src]="comic.thumbnail.path + '.' + comic.thumbnail.extension" alt="Comic Image">
+      <div class="card-title">{{ comic.title }}</div>
+    </div>
+  </div>
 </div>
 
 <div *ngIf="loadingData" class="loading">
