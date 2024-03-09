@@ -1,6 +1,11 @@
 <div class="background">
     <div class="slider">
-        <img *ngFor="let image of images" [src]="image" [class.active]="image === currentImage">
+        <img 
+            *ngFor="let image of images" [src]="image" 
+            [class.active]="image === currentImage"
+        >
     </div>
-    <button class="btn-character" routerLink="/characters-list" >View Characters</button>
+    <button class="btn-character" routerLink="/characters-list" >
+        View Characters
+    </button>
 </div>

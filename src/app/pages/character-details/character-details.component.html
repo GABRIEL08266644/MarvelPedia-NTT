@@ -2,7 +2,12 @@
   <app-go-back></app-go-back>
   <div class="card" *ngIf="!isExpandedImage">
       <div>
-          <img [src]="characterImage" alt="Character Image" class="img-fluid clickable" (click)="expandImage()">
+        <img 
+            [src]="characterImage" 
+            alt="Character Image" 
+            class="img-fluid clickable" 
+            (click)="expandImage()"
+        >
       </div>
       <div class="title-description">
           <h2>{{ characterTitle }}</h2>

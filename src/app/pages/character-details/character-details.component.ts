@@ -35,7 +35,8 @@ export class CharacterDetailsComponent implements OnInit {
   getCharacterDetailsById(): void {
     this.loadingData = true; 
 
-    this.characterService.getCharacterDetailsById(this.characterId).subscribe((characterDetais) => {
+    this.characterService.getCharacterDetailsById(this.characterId)
+    .subscribe((characterDetais) => {
       const character = characterDetais.data.results[0];
       this.characterImage = character.thumbnail.path + '.' + character.thumbnail.extension;
       this.characterTitle = character.name;
