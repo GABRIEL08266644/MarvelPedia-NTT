@@ -1,0 +1,11 @@
+<div>
+	<h1>{{title}}</h1>
+	
+	<div class="card-container">
+		<div *ngFor="let item of itens" class="card-comic" (click)="showDetails(item)">
+			<img [src]="item.thumbnail.path + '.' + item.thumbnail.extension" alt="Comic Image">
+			<div class="card-title" *ngIf="item.title">{{ item.title }}</div>
+			<div class="card-title" *ngIf="item.name">{{ item.name }}</div>
+		</div>
+	</div>
+</div>

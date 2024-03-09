@@ -29,13 +29,4 @@ export class CharacterService {
 
     return this.http.get<any>(url);
   }
-
-  getComicsByCharacterId(id: number): Observable<any> {
-    const url = 
-      `${environment.MARVEL_API_URL}/characters/${id}/comics?ts=${
-        environment.TS
-      }&apikey=${environment.MARVEL_API_KEY}&hash=${environment.MARVEL_HASH}`;
-
-    return this.http.get<any>(url);
-  }
 }

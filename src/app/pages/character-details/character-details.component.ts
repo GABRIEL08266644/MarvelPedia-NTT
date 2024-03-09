@@ -19,8 +19,6 @@ export class CharacterDetailsComponent implements OnInit {
 
   loadingData: boolean = false;
 
-  comics: any[] = [];
-
   constructor(
     private characterService: CharacterService,
     private route: ActivatedRoute,
@@ -44,18 +42,6 @@ export class CharacterDetailsComponent implements OnInit {
       this.characterTitle = character.name;
       this.characterDescription = character.description;
       this.loadingData = false; 
-
-      const comics = character.comics.items.map((item: any) => ({
-        name: item.name,
-        url: item.resourceURI
-      }));
-      console.log(comics)
-    });
-
-    this.characterService.getComicsByCharacterId(this.characterId)
-    .subscribe((characterDetais) => {
-      console.log(characterDetais)
-      this.comics = characterDetais.data.results;
     });
   }
 

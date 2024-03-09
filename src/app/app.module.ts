@@ -12,6 +12,8 @@ import { CharacterDetailsComponent } from './pages/character-details/character-d
 import { LoadingComponent } from './components/loading/loading.component';
 import { FooterComponent } from './components/footer/footer.component';
 import { GoBackComponent } from './components/go-back/go-back.component';
+import { DetailsListComponent } from './components/details-list/details-list.component';
+import { ComicsDetailsComponent } from './pages/comics-details/comics-details.component';
 
 @NgModule({
   declarations: [
@@ -22,7 +24,9 @@ import { GoBackComponent } from './components/go-back/go-back.component';
     CharacterDetailsComponent,
     LoadingComponent,
     FooterComponent,
-    GoBackComponent
+    GoBackComponent,
+    DetailsListComponent,
+    ComicsDetailsComponent
   ],
   imports: [
     BrowserModule,

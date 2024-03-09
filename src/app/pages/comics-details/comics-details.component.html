@@ -3,21 +3,21 @@
   <div class="card" *ngIf="!isExpandedImage">
       <div>
         <img 
-            [src]="characterImage" 
-            alt="Character Image" 
+            [src]="comicImage" 
+            alt="Comic Image" 
             class="img-fluid clickable" 
             (click)="expandImage()"
         >
       </div>
       <div class="title-description">
-          <h2>{{ characterTitle }}</h2>
-          <p>{{ characterDescription }}</p>
+          <h2>{{ comicTitle }}</h2>
+          <p>{{ comicDescription }}</p>
       </div>
   </div>
   <div class="expanded-image" *ngIf="isExpandedImage" (click)="closeExpandedImage()">
-      <img [src]="characterImage" alt="Character Image" class="img-fluid">
+      <img [src]="comicImage" alt="Comic Image" class="img-fluid">
   </div>
-  <app-details-list *ngIf="characterId" [characterId]="characterId"></app-details-list>
+  <app-details-list *ngIf="comicId" [comicId]="comicId"></app-details-list>
 </div>
 
 <div *ngIf="loadingData" class="loading">
