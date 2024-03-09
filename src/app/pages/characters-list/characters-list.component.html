@@ -7,7 +7,6 @@
     <div class="container-filter">
       <div class="input">
         <select [(ngModel)]="selectedCharacterId">
-          <option value="Choose a character">Choose a character</option>
           <option *ngFor="let character of characters" [value]="character.id">
             {{ character.name }}
           </option>
