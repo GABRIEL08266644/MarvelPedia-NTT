@@ -8,25 +8,41 @@
       <div class="input">
         <select [(ngModel)]="selectedCharacterId">
           <option value="Choose a character">Choose a character</option>
-          <option *ngFor="let character of characters" [value]="character.id">{{ character.name }}</option>
+          <option *ngFor="let character of characters" [value]="character.id">
+            {{ character.name }}
+          </option>
         </select>
-        <button class="btn-filter" type="button" (click)="applyFilter()"><img src="assets/btns/search.png"></button>
-        <button class="btn-filter" type="button" (click)="resetFilter()"><img src="assets/btns/reload.png"></button>
+        <button class="btn-filter" type="button" (click)="applyFilter()">
+          <img src="assets/btns/search.png">
+        </button>
+        <button class="btn-filter" type="button" (click)="resetFilter()">
+          <img src="assets/btns/reload.png">
+        </button>
       </div>
     </div>
     
     <div class="container-paginator">
       <div>
         <div class="input-group">
-          <button class="btn btn-primary" (click)="prevPage()" [disabled]="currentPage === 1"><img src="assets/btns/left-arrow.png"></button>
+          <button class="btn btn-primary" (click)="prevPage()" [disabled]="currentPage === 1">
+            <img src="assets/btns/left-arrow.png">
+          </button>
           <div class="page-numbers">
-            <span class="page-number" *ngIf="currentPage > 1" (click)="changePage(currentPage - 1)">{{ currentPage - 1 }}</span>
+            <span class="page-number" *ngIf="currentPage > 1" (click)="changePage(currentPage - 1)">
+              {{ currentPage - 1 }}
+            </span>
             <span class="page-number active">{{ currentPage }}</span>
-            <span class="page-number" *ngIf="currentPage < totalPages" (click)="changePage(currentPage + 1)">{{ currentPage + 1 }}</span>
+            <span class="page-number" *ngIf="currentPage < totalPages" (click)="changePage(currentPage + 1)">
+              {{ currentPage + 1 }}
+            </span>
           </div>
-          <button class="btn btn-primary" (click)="nextPage()" [disabled]="currentPage === totalPages"><img src="assets/btns/right-arrow.png"></button>
+          <button class="btn btn-primary" (click)="nextPage()" [disabled]="currentPage === totalPages">
+            <img src="assets/btns/right-arrow.png">
+          </button>
           <select [(ngModel)]="itemsPerPage" (change)="changeItemsPerPage()">
-            <option *ngFor="let option of itemsPerPageOptions" [value]="option">{{ option }}</option>
+            <option *ngFor="let option of itemsPerPageOptions" [value]="option">
+              {{ option }}
+            </option>
           </select>
         </div>
       </div>
