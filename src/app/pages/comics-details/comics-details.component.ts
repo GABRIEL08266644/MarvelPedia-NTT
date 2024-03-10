@@ -44,7 +44,12 @@ export class ComicsDetailsComponent implements OnInit {
       const comic = comicDetais.data.results[0];
       this.comicImage = comic.thumbnail.path + '.' + comic.thumbnail.extension;
       this.comicTitle = comic.title;
-      this.comicDescription = comic.description;
+
+      if(comic.description !== "") 
+        this.comicDescription = comic.description;
+      else 
+        this.comicDescription = "Description not found";
+
       this.loadingData = false; 
     });
   }

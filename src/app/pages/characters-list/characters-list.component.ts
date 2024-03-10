@@ -28,6 +28,7 @@ export class CharactersListComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
+    this.getSavePageLocalStorage();
     this.getCharacters();
   }
 
@@ -43,6 +44,19 @@ export class CharactersListComponent implements OnInit {
       });
   }
 
+  getSavePageLocalStorage() {
+    const itemsPerPageString = localStorage.getItem('itemsPerPage');
+    const currentPageString = localStorage.getItem('currentPage');
+    
+    if (itemsPerPageString !== null) {
+      this.itemsPerPage = parseInt(itemsPerPageString, 10);
+    }
+    
+    if (currentPageString !== null) {
+      this.currentPage = parseInt(currentPageString, 10);
+    }
+  }
+
   showDetails(character: any) {
     this.router.navigate(['/character-details', character.id]);
   }
@@ -52,6 +66,8 @@ export class CharactersListComponent implements OnInit {
       this.currentPage++;
       this.getCharacters();
     }
+
+    this.savePage()
   }
 
   prevPage(): void {
@@ -59,10 +75,12 @@ export class CharactersListComponent implements OnInit {
       this.currentPage--;
       this.getCharacters();
     }
+
+    this.savePage()
   }
 
   changeItemsPerPage(): void {
-    this.currentPage = 1;
+    this.savePage()
     this.getCharacters();
   }
 
@@ -71,6 +89,13 @@ export class CharactersListComponent implements OnInit {
       this.currentPage = pageNumber;
       this.getCharacters();
     }
+
+    this.savePage()
+  }
+
+  savePage() {
+    localStorage.setItem('itemsPerPage', this.itemsPerPage.toString());
+    localStorage.setItem('currentPage', this.currentPage.toString());
   }
 
   applyFilter(): void {
@@ -87,6 +112,10 @@ export class CharactersListComponent implements OnInit {
 
   resetFilter(): void {
     this.selectedCharacterId = 0;
+    localStorage.setItem('itemsPerPage', '12');
+    localStorage.setItem('currentPage', '1');
+
+    this.getSavePageLocalStorage();
     this.getCharacters();
   }
 

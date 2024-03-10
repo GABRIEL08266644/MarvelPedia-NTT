@@ -40,7 +40,12 @@ export class CharacterDetailsComponent implements OnInit {
       const character = characterDetais.data.results[0];
       this.characterImage = character.thumbnail.path + '.' + character.thumbnail.extension;
       this.characterTitle = character.name;
-      this.characterDescription = character.description;
+
+      if(character.description !== "") 
+        this.characterDescription = character.description;
+      else 
+        this.characterDescription = "Description not found";
+
       this.loadingData = false; 
     });
   }
