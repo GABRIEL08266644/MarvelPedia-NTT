@@ -11,8 +11,6 @@ Link para Download: https://nodejs.org/en/blog/release/v14.20.0
 
 Instruções de Uso
 1. Clonar o Repositório
-bash
-Copy code
 git clone https://github.com/seu-usuario/seu-repositorio.git
 cd seu-repositorio
 
