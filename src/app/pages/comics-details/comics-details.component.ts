@@ -23,7 +23,6 @@ export class ComicsDetailsComponent implements OnInit {
   comics: any[] = [];
 
   constructor(
-    private characterService: CharacterService,
     private comicService: ComicService,
     private route: ActivatedRoute,
     private location: Location
