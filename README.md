@@ -6,6 +6,9 @@ Angular 13
 TypeScript
 SASS
 
+Versão do Node.js utilizado: v14.20.0
+Link para Download: https://nodejs.org/en/blog/release/v14.20.0
+
 Instruções de Uso
 1. Clonar o Repositório
 bash
